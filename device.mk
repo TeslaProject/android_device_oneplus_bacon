@@ -6,7 +6,7 @@
 # Include common makefile
 $(call inherit-product, device/oppo/msm8974-common/common.mk)
 
-LOCAL_PATH := device/oppo/find7op
+LOCAL_PATH := device/oneplus/bacon
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 

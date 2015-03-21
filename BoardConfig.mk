@@ -1,7 +1,7 @@
 # inherit common device tree
 -include device/oppo/msm8974-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/oppo/find7op
+LOCAL_PATH := device/oneplus/bacon
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := find7op
@@ -24,3 +24,10 @@ BOARD_NFC_CHIPSET := pn547
 
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/configs/fstab.find7op
 RECOVERY_SDCARD_ON_DATA := true
+
+# Inline kernel
+TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
+TARGET_KERNEL_CONFIG := mm_bacon_defconfig
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
+# Kernel Toolchain
+TARGET_GCC_VERSION_ARM := 4.8
