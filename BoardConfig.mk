@@ -21,17 +21,21 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_NFC_CHIPSET := pn547
 
 # Recovery:Start
-
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/configs/fstab.find7op
 RECOVERY_SDCARD_ON_DATA := true
 
 # Inline kernel
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
-TARGET_KERNEL_CONFIG := msm8974_find7op_defconfig 
+TARGET_KERNEL_CONFIG := mm_bacon_defconfig 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 # Kernel Toolchain
-TARGET_GCC_VERSION_ARM := 4.9-sabernaro
+#TARGET_GCC_VERSION_ARM := 4.9-sabernaro
 
 # Rom Toolchain
 ## TARGET_GCC_VERSION_EXP := 4.9
+
+# Default.prop overrides to get adb working at boot   
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
